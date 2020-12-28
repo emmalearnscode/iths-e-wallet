@@ -1,0 +1,78 @@
+<template>
+  <div class="card">
+    <img
+      class="card-chip"
+      src="../assets/chip-dark.svg"
+      alt="credit card chip image"
+    />
+    <img
+      class="vendor-logo"
+      src="../assets/vendor-bitcoin.svg"
+      alt="Bank vendor logo"
+    />
+    <p class="card-number">1234 5678 9098 7654</p>
+    <p class="card-name p-small">CARDHOLDER NAME</p>
+    <p class="inputted-name">EMMA DAWSON</p>
+    <p class="valid p-small">VALID UNTIL</p>
+    <p class="expiry-date">12/23</p>
+  </div>
+</template>
+
+<script>
+export default {};
+</script>
+
+<style scoped>
+.card {
+  background: #d8d8d8;
+  width: 100%;
+  height: 220px;
+  border-radius: 10px;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 6fr 3fr 1fr 1fr;
+}
+
+.vendor-logo {
+  justify-self: end;
+}
+
+p {
+  font-family: "PT Mono", monospace;
+  font-size: 1.1rem;
+}
+
+.p-small {
+  font-size: 0.8rem;
+}
+
+.card-number {
+  grid-row: 2;
+  grid-column: 1/3;
+  font-size: 1.8rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.8rem;
+}
+.card-name {
+  grid-row: 3;
+}
+
+.inputted-name {
+  grid-row: 4;
+  align-self: end;
+}
+
+.valid {
+  grid-row: 3;
+  grid-column: 2;
+  justify-self: end;
+}
+
+.expiry-date {
+  grid-row: 4;
+  grid-column: 2;
+  justify-self: end;
+  align-self: end;
+}
+</style>
