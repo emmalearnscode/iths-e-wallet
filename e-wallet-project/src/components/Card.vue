@@ -10,9 +10,9 @@
       src="../assets/vendor-bitcoin.svg"
       alt="Bank vendor logo"
     />
-    <p class="card-number">1234 5678 9098 7654</p>
+    <p class="card-number">XXXX XXXX XXXX XXXX</p>
     <p class="card-name p-small">CARDHOLDER NAME</p>
-    <p class="inputted-name">EMMA DAWSON</p>
+    <p class="inputted-name">FIRSTNAME LASTNAME</p>
     <p class="valid p-small">VALID UNTIL</p>
     <p class="expiry-date">12/23</p>
   </div>

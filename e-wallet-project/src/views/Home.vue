@@ -1,8 +1,9 @@
 <template>
-  <div class="home">
+  <div>
     <top-view :title="title" :cardTitle="cardTitle"></top-view>
     <card></card>
     <card-stack></card-stack>
+    <button>ADD NEW CARD</button>
   </div>
 </template>
 
@@ -25,3 +26,23 @@ export default {
   },
 };
 </script>
+
+<style>
+button {
+  width: 100%;
+  padding: 1rem;
+  font-family: "PT Mono", monospace;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 1rem 0;
+  background-color: #fff;
+  text-transform: uppercase;
+}
+
+.inverted-btn {
+  background-color: black;
+  color: white;
+}
+</style>
