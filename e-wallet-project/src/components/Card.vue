@@ -2,12 +2,12 @@
   <div class="card">
     <img
       class="card-chip"
-      src="../assets/chip-dark.svg"
+      src="../assets/images/chip-dark.svg"
       alt="credit card chip image"
     />
     <img
       class="vendor-logo"
-      src="../assets/vendor-bitcoin.svg"
+      src="../assets/images/vendor-bitcoin.svg"
       alt="Bank vendor logo"
     />
     <p class="card-number">XXXX XXXX XXXX XXXX</p>

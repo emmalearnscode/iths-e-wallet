@@ -1,22 +1,27 @@
 <template>
-  <form>
+  <form @submit.prevent="addCardToData">
     <label for="card-number">Card number</label>
-    <input type="text" name="card-number" placeholder="XXXX XXXX XXXX XXXX" />
+    <input
+      type="text"
+      name="card-number"
+      placeholder="XXXX XXXX XXXX XXXX"
+      maxlength="16"
+    />
     <label for="card-name">Cardholder name</label>
     <input type="text" name="card-name" placeholder="FIRSTNAME LASTNAME" />
     <div class="valid">
       <div class="valid-flex">
         <label for="valid-month">Month</label>
         <select name="valid-month">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
+          <option value="01">1</option>
+          <option value="02">2</option>
+          <option value="03">3</option>
+          <option value="04">4</option>
+          <option value="05">5</option>
+          <option value="06">6</option>
+          <option value="07">7</option>
+          <option value="08">8</option>
+          <option value="09">9</option>
           <option value="10">10</option>
           <option value="11">11</option>
           <option value="12">12</option>
@@ -45,7 +50,25 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      form: {
+        id: "",
+        holder: "",
+        number: "",
+        vendor: "",
+        validMonth: "",
+        validYear: "",
+      },
+    };
+  },
+  methods: {
+    addCardToData() {
+      this.$router.push("/");
+    },
+  },
+};
 </script>
 
 <style scoped>

@@ -3,7 +3,7 @@
     <top-view :title="title" :cardTitle="cardTitle"></top-view>
     <card></card>
     <card-stack></card-stack>
-    <button>ADD NEW CARD</button>
+    <button @click="addCardRoute">ADD NEW CARD</button>
   </div>
 </template>
 
@@ -24,6 +24,11 @@ export default {
       cardTitle: "Active card",
     };
   },
+  methods: {
+    addCardRoute() {
+      this.$router.push("/addcard");
+    },
+  },
 };
 </script>
 
@@ -39,6 +44,7 @@ button {
   margin: 1rem 0;
   background-color: #fff;
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 .inverted-btn {
