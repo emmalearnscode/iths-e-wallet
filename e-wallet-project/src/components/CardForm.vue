@@ -93,6 +93,7 @@ export default {
       this.$root.form.vendor = this.form.vendor;
     },
   addCardToData() {
+    this.$root.addCard(this.form)
   this.$router.push("/")
 }
     },

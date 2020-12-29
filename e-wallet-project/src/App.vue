@@ -16,10 +16,7 @@
 .container {
   border: 2px solid red;
   width: 400px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  
   margin: 0 auto;
   padding: 1rem;
 }
