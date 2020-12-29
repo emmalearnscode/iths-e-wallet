@@ -92,11 +92,10 @@ export default {
     selectVendor() {
       this.$root.form.vendor = this.form.vendor;
     },
-
-    addCardToData() {
-      this.$router.push("/");
+  addCardToData() {
+  this.$router.push("/")
+}
     },
-  },
 };
 </script>
 

@@ -1,15 +1,20 @@
 <template>
-  <div class="card">
-    <img
+  <div class="card" :class="bgColor">
+    <img v-if="vendor === 'vendor-bitcoin'"
       class="card-chip"
       src="../assets/images/chip-dark.svg"
+      alt="credit card chip image"
+    />
+    <img v-else
+      class="card-chip"
+      src="../assets/images/chip-light.svg"
       alt="credit card chip image"
     />
     <img v-if="vendor === 'vendor-bitcoin' " class="vendor-logo" src="../assets/images/vendor-bitcoin.svg" alt="Bank vendor logo" />
     <img v-else-if="vendor === 'vendor-blockchain' " class="vendor-logo" src="../assets/images/vendor-blockchain.svg" alt="Bank vendor logo" />
     <img v-else-if="vendor === 'vendor-evil' " class="vendor-logo" src="../assets/images/vendor-evil.svg" alt="Bank vendor logo" />
     <img v-else-if="vendor === 'vendor-ninja' " class="vendor-logo" src="../assets/images/vendor-ninja.svg" alt="Bank vendor logo" />
-    <p class="card-number">{{ number }}</p>
+    <p class="card-number">{{ formatNumber }}</p>
     <p class="card-name p-small">CARDHOLDER NAME</p>
     <p class="inputted-name">{{ holder }}</p>
     <p class="valid p-small">VALID UNTIL</p>
@@ -26,7 +31,40 @@ export default {
     vendor: String,
     
   },
-  
+  computed: {
+    bgColor() {
+      if (this.vendor === "vendor-bitcoin") {
+        return "bg-bitcoin"
+      }
+      else if (this.vendor === "vendor-blockchain") {
+        return "bg-blockchain"
+      }
+      else if (this.vendor === "vendor-evil") {
+        return "bg-evil"
+      }
+      else if (this.vendor === "vendor-ninja") {
+        return "bg-ninja"
+      }
+      else {
+        return "bg-grey"
+      }
+    },
+    formatNumber() {
+      let formattedNum = ""
+      if (this.number) {
+for (let i = 0; i < this.number.length; i++) {
+        if (i % 4 === 0) {
+          formattedNum = formattedNum + " " + this.number[i]
+        }
+        else {
+          formattedNum += this.number[i]
+        }
+      }
+      }
+      
+      return formattedNum
+    }
+  }
   
   
 };
@@ -34,7 +72,6 @@ export default {
 
 <style scoped>
 .card {
-  background: #d8d8d8;
   width: 100%;
   height: 220px;
   border-radius: 10px;
@@ -42,6 +79,29 @@ export default {
   display: grid;
   grid-template-columns: 3fr 1fr;
   grid-template-rows: 6fr 3fr 1fr 1fr;
+}
+
+.bg-bitcoin {
+  background-color: #ffb43f;
+}
+
+.bg-blockchain {
+  background-color: #8051E5;
+  color: white;
+}
+
+.bg-ninja {
+  background-color: #2f2f2f;
+  color: white;
+}
+
+.bg-evil {
+  background-color: #DD2f4e;
+  color: white;
+}
+
+.bg-grey {
+background: #d8d8d8;
 }
 
 .vendor-logo {
@@ -54,7 +114,7 @@ p {
 }
 
 .p-small {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
 }
 
 .card-number {

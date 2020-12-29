@@ -9,15 +9,16 @@ new Vue({
   router,
   data() {
     return {
-      cards: cardData.cards,
+      cards: cardData,
       form: {
-        holder: "",
-        number: "",
+        holder: "FIRSTNAME LASTNAME",
+        number: "XXXXXXXXXXXXXXXX",
         vendor: "",
-        validMonth: "",
-        validYear: "",
+        validMonth: "00",
+        validYear: "0000",
       },
     };
   },
+
   render: (h) => h(App),
 }).$mount("#app");
