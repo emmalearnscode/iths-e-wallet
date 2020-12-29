@@ -6,13 +6,26 @@
       name="card-number"
       placeholder="XXXX XXXX XXXX XXXX"
       maxlength="16"
+      v-model="form.number"
+      @input="cardNumber"
     />
     <label for="card-name">Cardholder name</label>
-    <input type="text" name="card-name" placeholder="FIRSTNAME LASTNAME" />
+    <input
+      type="text"
+      name="card-name"
+      placeholder="FIRSTNAME LASTNAME"
+      v-model="form.holder"
+      @input="cardHolder"
+    />
     <div class="valid">
       <div class="valid-flex">
         <label for="valid-month">Month</label>
-        <select name="valid-month">
+        <select
+          name="valid-month"
+          v-model="form.validMonth"
+          @change="expiryMonth"
+        >
+          <option value="" selected disabled hidden></option>
           <option value="01">1</option>
           <option value="02">2</option>
           <option value="03">3</option>
@@ -29,7 +42,8 @@
       </div>
       <div class="valid-flex">
         <label for="valid-year">Year</label>
-        <select name="valid-year">
+        <select name="valid-year" v-model="form.validYear" @change="expiryYear">
+          <option value="" selected disabled hidden></option>
           <option value="2021">2021</option>
           <option value="2022">2022</option>
           <option value="2023">2023</option>
@@ -39,11 +53,11 @@
       </div>
     </div>
     <label for="vendor">vendor</label>
-    <select name="vendor">
-      <option value="bitcoin">Bitcoin Inc</option>
-      <option value="blockchain">Blockchain Inc</option>
-      <option value="evilcorp">Evil Corp</option>
-      <option value="ninja">Ninja Bank</option>
+    <select name="vendor" v-model="form.vendor" @change="selectVendor">
+      <option value="vendor-bitcoin">Bitcoin Inc</option>
+      <option value="vendor-blockchain">Blockchain Inc</option>
+      <option value="vendor-evil">Evil Corp</option>
+      <option value="vendor-ninja">Ninja Bank</option>
     </select>
     <button class="inverted-btn">Add Card</button>
   </form>
@@ -54,9 +68,8 @@ export default {
   data() {
     return {
       form: {
-        id: "",
-        holder: "",
         number: "",
+        holder: "",
         vendor: "",
         validMonth: "",
         validYear: "",
@@ -64,6 +77,22 @@ export default {
     };
   },
   methods: {
+    cardNumber() {
+      this.$root.form.number = this.form.number;
+    },
+    cardHolder() {
+      this.$root.form.holder = this.form.holder;
+    },
+    expiryMonth() {
+      this.$root.form.validMonth = this.form.validMonth;
+    },
+    expiryYear() {
+      this.$root.form.validYear = this.form.validYear;
+    },
+    selectVendor() {
+      this.$root.form.vendor = this.form.vendor;
+    },
+
     addCardToData() {
       this.$router.push("/");
     },

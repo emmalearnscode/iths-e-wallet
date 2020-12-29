@@ -10,6 +10,13 @@ new Vue({
   data() {
     return {
       cards: cardData.cards,
+      form: {
+        holder: "",
+        number: "",
+        vendor: "",
+        validMonth: "",
+        validYear: "",
+      },
     };
   },
   render: (h) => h(App),

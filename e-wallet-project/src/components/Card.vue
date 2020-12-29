@@ -5,21 +5,31 @@
       src="../assets/images/chip-dark.svg"
       alt="credit card chip image"
     />
-    <img
-      class="vendor-logo"
-      src="../assets/images/vendor-bitcoin.svg"
-      alt="Bank vendor logo"
-    />
-    <p class="card-number">XXXX XXXX XXXX XXXX</p>
+    <img v-if="vendor === 'vendor-bitcoin' " class="vendor-logo" src="../assets/images/vendor-bitcoin.svg" alt="Bank vendor logo" />
+    <img v-else-if="vendor === 'vendor-blockchain' " class="vendor-logo" src="../assets/images/vendor-blockchain.svg" alt="Bank vendor logo" />
+    <img v-else-if="vendor === 'vendor-evil' " class="vendor-logo" src="../assets/images/vendor-evil.svg" alt="Bank vendor logo" />
+    <img v-else-if="vendor === 'vendor-ninja' " class="vendor-logo" src="../assets/images/vendor-ninja.svg" alt="Bank vendor logo" />
+    <p class="card-number">{{ number }}</p>
     <p class="card-name p-small">CARDHOLDER NAME</p>
-    <p class="inputted-name">FIRSTNAME LASTNAME</p>
+    <p class="inputted-name">{{ holder }}</p>
     <p class="valid p-small">VALID UNTIL</p>
-    <p class="expiry-date">12/23</p>
+    <p class="expiry-date">{{ expiry }}</p>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    number: String,
+    holder: String,
+    expiry: String,
+    vendor: String,
+    
+  },
+  
+  
+  
+};
 </script>
 
 <style scoped>
