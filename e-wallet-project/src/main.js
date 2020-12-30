@@ -23,6 +23,11 @@ new Vue({
   methods: {
     addCard(userInfo) {
       this.cards.push(userInfo);
+      (this.form.holder = "FIRSTNAME LASTNAME"),
+        (this.form.number = "XXXXXXXXXXXXXXXX"),
+        (this.form.vendor = ""),
+        (this.form.validMonth = "00"),
+        (this.form.validYear = "0000");
     },
   },
   render: (h) => h(App),
