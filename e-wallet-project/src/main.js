@@ -33,7 +33,8 @@ new Vue({
   methods: {
     addCard(userInfo) {
       this.cards.push(userInfo);
-      (this.form.holder = "FIRSTNAME LASTNAME"),
+      this.setActiveCard(userInfo.id),
+        (this.form.holder = "FIRSTNAME LASTNAME"),
         (this.form.number = "XXXXXXXXXXXXXXXX"),
         (this.form.vendor = ""),
         (this.form.validMonth = "00"),
@@ -43,17 +44,18 @@ new Vue({
       this.activeCard = this.cards.filter((card) => card.id === id);
     },
     removeCardFromList() {
-      console.log(this.cards);
       let id = this.activeCard[0].id;
-      console.log(id);
       this.cards = this.cards.filter((card) => card.id !== id);
-      console.log(this.cards);
-      (this.activeCard[0].id = ""),
-        (this.activeCard[0].holder = "FIRSTNAME LASTNAME"),
-        (this.activeCard[0].number = "XXXXXXXXXXXXXXXX"),
-        (this.activeCard[0].vendor = ""),
-        (this.activeCard[0].validMonth = "00"),
-        (this.activeCard[0].validYear = "0000");
+      if (this.cards.length >= 1) {
+        this.setActiveCard(this.cards[this.cards.length - 1].id);
+      } else {
+        (this.activeCard[0].id = ""),
+          (this.activeCard[0].holder = "FIRSTNAME LASTNAME"),
+          (this.activeCard[0].number = "XXXXXXXXXXXXXXXX"),
+          (this.activeCard[0].vendor = ""),
+          (this.activeCard[0].validMonth = "00"),
+          (this.activeCard[0].validYear = "0000");
+      }
     },
   },
   render: (h) => h(App),

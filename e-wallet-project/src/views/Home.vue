@@ -74,6 +74,7 @@ button {
   background-color: #fff;
   text-transform: uppercase;
   cursor: pointer;
+  outline-color: darkorange;
 }
 
 .inverted-btn {

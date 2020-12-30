@@ -86,6 +86,7 @@ for (let i = 0; i < this.number.length; i++) {
   display: grid;
   grid-template-columns: 3fr 1fr;
   grid-template-rows: 6fr 3fr 1fr 1fr;
+  margin-bottom: 1rem;
 }
 
 .bg-bitcoin {

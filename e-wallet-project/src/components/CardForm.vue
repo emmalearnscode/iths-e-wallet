@@ -1,6 +1,6 @@
 <template>
   <form @submit.prevent="addCardToData">
-    <label for="card-number">Card number</label>
+    <label for="card-number">Card number<span>*</span></label>
     <input
       type="text"
       name="card-number"
@@ -10,7 +10,7 @@
       @input="cardNumber"
       required
     />
-    <label for="card-name">Cardholder name</label>
+    <label for="card-name">Cardholder name<span>*</span></label>
     <input
       type="text"
       name="card-name"
@@ -22,7 +22,7 @@
     />
     <div class="valid">
       <div class="valid-flex">
-        <label for="valid-month">Month</label>
+        <label for="valid-month">Month<span>*</span></label>
         <select
           name="valid-month"
           v-model="form.validMonth"
@@ -45,7 +45,7 @@
         </select>
       </div>
       <div class="valid-flex">
-        <label for="valid-year">Year</label>
+        <label for="valid-year">Year<span>*</span></label>
         <select name="valid-year" v-model="form.validYear" @change="expiryYear" required>
           <option value="" selected disabled hidden></option>
           <option value="2021">2021</option>
@@ -56,7 +56,7 @@
         </select>
       </div>
     </div>
-    <label for="vendor">vendor</label>
+    <label for="vendor">vendor<span>*</span></label>
     <select name="vendor" v-model="form.vendor" @change="selectVendor" required>
       <option value="vendor-bitcoin">Bitcoin Inc</option>
       <option value="vendor-blockchain">Blockchain Inc</option>
@@ -123,6 +123,7 @@ label {
 input,
 select {
   padding: 0.8rem;
+  outline-color: darkorange;
 }
 
 .valid {
@@ -138,5 +139,9 @@ select {
 
 .valid-flex + .valid-flex {
   margin-left: 1rem;
+}
+
+span {
+  color: red;
 }
 </style>
