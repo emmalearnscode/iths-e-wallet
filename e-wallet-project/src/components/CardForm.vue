@@ -15,7 +15,7 @@
       type="text"
       name="card-name"
       placeholder="FIRSTNAME LASTNAME"
-      maxlength="24"
+      maxlength="22"
       v-model.trim="form.holder"
       @input="cardHolder"
       required

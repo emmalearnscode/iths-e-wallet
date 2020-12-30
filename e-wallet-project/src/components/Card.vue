@@ -127,7 +127,7 @@ p {
 .card-number {
   grid-row: 2;
   grid-column: 1/3;
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   padding-top: 0.5rem;
   padding-bottom: 0.8rem;
 }

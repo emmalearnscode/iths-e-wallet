@@ -30,5 +30,6 @@ p {
   font-family: "PT Mono", monospace;
   color: rgba(0, 0, 0, 0.4);
   font-weight: 700;
+  padding-bottom: .5rem;
 }
 </style>

@@ -42,6 +42,19 @@ new Vue({
     setActiveCard(id) {
       this.activeCard = this.cards.filter((card) => card.id === id);
     },
+    removeCardFromList() {
+      console.log(this.cards);
+      let id = this.activeCard[0].id;
+      console.log(id);
+      this.cards = this.cards.filter((card) => card.id !== id);
+      console.log(this.cards);
+      (this.activeCard[0].id = ""),
+        (this.activeCard[0].holder = "FIRSTNAME LASTNAME"),
+        (this.activeCard[0].number = "XXXXXXXXXXXXXXXX"),
+        (this.activeCard[0].vendor = ""),
+        (this.activeCard[0].validMonth = "00"),
+        (this.activeCard[0].validYear = "0000");
+    },
   },
   render: (h) => h(App),
 }).$mount("#app");

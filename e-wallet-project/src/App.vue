@@ -14,9 +14,8 @@
 }
 
 .container {
-  border: 2px solid red;
-  width: 400px;
-  
+  background-color: white;
+  width: 375px;
   margin: 0 auto;
   padding: 1rem;
 }
