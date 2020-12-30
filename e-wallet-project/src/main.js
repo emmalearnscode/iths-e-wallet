@@ -10,7 +10,7 @@ new Vue({
   data() {
     return {
       cards: cardData,
-      cardsArray: [],
+
       form: {
         holder: "FIRSTNAME LASTNAME",
         number: "XXXXXXXXXXXXXXXX",
@@ -22,8 +22,7 @@ new Vue({
   },
   methods: {
     addCard(userInfo) {
-      this.cardsArray.push(userInfo);
-      console.log(this.cardsArray);
+      this.cards.push(userInfo);
     },
   },
   render: (h) => h(App),

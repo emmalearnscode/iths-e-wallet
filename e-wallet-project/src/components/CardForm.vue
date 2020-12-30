@@ -8,14 +8,17 @@
       maxlength="16"
       v-model="form.number"
       @input="cardNumber"
+      required
     />
     <label for="card-name">Cardholder name</label>
     <input
       type="text"
       name="card-name"
       placeholder="FIRSTNAME LASTNAME"
-      v-model="form.holder"
+      maxlength="24"
+      v-model.trim="form.holder"
       @input="cardHolder"
+      required
     />
     <div class="valid">
       <div class="valid-flex">
@@ -24,6 +27,7 @@
           name="valid-month"
           v-model="form.validMonth"
           @change="expiryMonth"
+          required
         >
           <option value="" selected disabled hidden></option>
           <option value="01">1</option>
@@ -42,7 +46,7 @@
       </div>
       <div class="valid-flex">
         <label for="valid-year">Year</label>
-        <select name="valid-year" v-model="form.validYear" @change="expiryYear">
+        <select name="valid-year" v-model="form.validYear" @change="expiryYear" required>
           <option value="" selected disabled hidden></option>
           <option value="2021">2021</option>
           <option value="2022">2022</option>
@@ -53,7 +57,7 @@
       </div>
     </div>
     <label for="vendor">vendor</label>
-    <select name="vendor" v-model="form.vendor" @change="selectVendor">
+    <select name="vendor" v-model="form.vendor" @change="selectVendor" required>
       <option value="vendor-bitcoin">Bitcoin Inc</option>
       <option value="vendor-blockchain">Blockchain Inc</option>
       <option value="vendor-evil">Evil Corp</option>
@@ -68,6 +72,7 @@ export default {
   data() {
     return {
       form: {
+        id: "",
         number: "",
         holder: "",
         vendor: "",
@@ -93,6 +98,7 @@ export default {
       this.$root.form.vendor = this.form.vendor;
     },
   addCardToData() {
+    this.form.id = Date.now()
     this.$root.addCard(this.form)
   this.$router.push("/")
 }

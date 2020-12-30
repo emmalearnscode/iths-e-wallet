@@ -76,6 +76,7 @@ for (let i = 0; i < this.number.length; i++) {
   height: 220px;
   border-radius: 10px;
   padding: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 0.5rem;
   display: grid;
   grid-template-columns: 3fr 1fr;
   grid-template-rows: 6fr 3fr 1fr 1fr;
@@ -131,6 +132,7 @@ p {
 .inputted-name {
   grid-row: 4;
   align-self: end;
+  text-transform: uppercase;
 }
 
 .valid {
