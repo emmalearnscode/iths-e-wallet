@@ -1,5 +1,5 @@
 <template>
-  <div class="card" :class="bgColor">
+  <div class="card" :class="bgColor" @click="makeActiveCard">
     <img v-if="vendor === 'vendor-bitcoin'"
       class="card-chip"
       src="../assets/images/chip-dark.svg"
@@ -29,7 +29,13 @@ export default {
     holder: String,
     expiry: String,
     vendor: String,
+    id: String,
     
+  },
+  methods: {
+    makeActiveCard() {
+      this.$root.setActiveCard(this.id);
+    }
   },
   computed: {
     bgColor() {

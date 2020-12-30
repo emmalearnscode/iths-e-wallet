@@ -1,7 +1,7 @@
 <template>
   <div>
     <top-view :title="title" :cardTitle="cardTitle"></top-view>
-    <card :number="cardNumber" :holder="cardHolder" :expiry="expiryDate" :vendor="vendor"></card>
+    <card :id="cardId" :number="cardNumber" :holder="cardHolder" :expiry="expiryDate" :vendor="vendor"></card>
     <card-stack></card-stack>
     <button @click="addCardRoute">ADD NEW CARD</button>
   </div>
@@ -31,17 +31,20 @@ export default {
   },
   computed: {
     cardNumber() {
-      return this.$root.cards[0].number
+      return this.$root.activeCard[0].number
     },
     cardHolder() {
-      return this.$root.cards[0].holder
+      return this.$root.activeCard[0].holder
     },
     expiryDate() {
-      return this.$root.cards[0].validMonth + "/" + this.$root.cards[0].validYear;
+      return this.$root.activeCard[0].validMonth + "/" + this.$root.activeCard[0].validYear;
     },
     vendor() {
-      return this.$root.cards[0].vendor;
+      return this.$root.activeCard[0].vendor;
     },
+    cardId() {
+      return this.$root.activeCard[0].id;
+    }
   }
 };
 </script>

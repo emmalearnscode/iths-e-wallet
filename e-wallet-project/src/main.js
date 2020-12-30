@@ -10,8 +10,18 @@ new Vue({
   data() {
     return {
       cards: cardData,
-
+      activeCard: [
+        {
+          id: "",
+          holder: "FIRSTNAME LASTNAME",
+          number: "XXXXXXXXXXXXXXXX",
+          vendor: "",
+          validMonth: "00",
+          validYear: "0000",
+        },
+      ],
       form: {
+        id: "",
         holder: "FIRSTNAME LASTNAME",
         number: "XXXXXXXXXXXXXXXX",
         vendor: "",
@@ -28,6 +38,9 @@ new Vue({
         (this.form.vendor = ""),
         (this.form.validMonth = "00"),
         (this.form.validYear = "0000");
+    },
+    setActiveCard(id) {
+      this.activeCard = this.cards.filter((card) => card.id === id);
     },
   },
   render: (h) => h(App),

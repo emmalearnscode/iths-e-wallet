@@ -1,5 +1,13 @@
 <template> <section>
-  <card-view v-for="card of cards" :key="card.id" :number="card.number" :holder="card.holder" :expiry="card.validMonth + '/' + card.validYear" :vendor="card.vendor"></card-view>
+  <card-view v-for="card of cards" 
+  :key="card.id"
+  :id="card.id" 
+  :number="card.number" 
+  :holder="card.holder" 
+  :expiry="card.validMonth + '/' + card.validYear" 
+  :vendor="card.vendor"
+  >
+  </card-view>
   </section></template>
 
 <script>
@@ -13,8 +21,8 @@ export default {
     cards() {
       return this.$root.cards
     }
-  }
-};
+  },
+    };
 </script>
 
 <style scoped>

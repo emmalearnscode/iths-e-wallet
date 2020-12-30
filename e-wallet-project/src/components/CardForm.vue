@@ -98,7 +98,7 @@ export default {
       this.$root.form.vendor = this.form.vendor;
     },
   addCardToData() {
-    this.form.id = Date.now()
+    this.form.id = (Date.now()).toString()
     this.$root.addCard(this.form)
   this.$router.push("/")
 }
